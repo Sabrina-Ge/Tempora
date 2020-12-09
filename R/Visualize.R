@@ -34,7 +34,7 @@ PlotTrajectory <- function(object, layout=NULL, ...){
     if (length(levels(object@meta.data$Timepoints)) > 9){
       colours <- colorRampPalette(RColorBrewer::brewer.pal(7, "YlOrRd"))
       plot.igraph(edge_graph, ylim=c(-1,1), layout = l$layout, ylab = "Inferred time", vertex.shape = "pie", vertex.pie = lapply(1:nrow(object@cluster.metadata), function(x) as.numeric(object@cluster.metadata[x,2:((length(levels(object@meta.data$Timepoints)))+1)])),
-                  vertex.pie.color=list(colours(length(levels(object@meta.data$Timepoints)))), pie.border=list(rep("white", 4)), vertex.frame.color="white", edge.arrow.size = 0.5, edge.width = 1.5, vertex.label.family="Arial",
+                  vertex.pie.color=list(colours(length(levels(object@meta.data$Timepoints)))), pie.border=list(rep("white", 4)), vertex.frame.color="white", edge.arrow.size = 0.5, edge.width = 1.5,
                   vertex.label.color="black", edge.lty = E(edge_graph)$type, ...)
       axis(side=2, at=c(-1,1), labels=c("Late","Early"), las=1)
       legend("topleft", legend = levels(object@meta.data$Timepoints), fill=colours, bty = "n", border="black")
